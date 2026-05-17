@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import NavLink from "./Navlink";
 import navImage from "@/assets/logo1.png"
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -17,19 +18,24 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+
     return (
         <div
-            className={`sticky top-0 z-50 transition-all duration-300 ${scrolled
-                ? "bg-white/70 backdrop-blur-xl border-b border-base-200 shadow-sm"
-                : "bg-transparent"
-                }`}
+            className={`w-full z-50 top-0 transition-all duration-300 ${scrolled
+                    ? "sticky bg-white/70 backdrop-blur-xl border-b border-base-200 shadow-sm"
+                    : isHome
+                        ? "absolute bg-transparent"
+                        : "relative bg-[#1A2536]"
+                } ${isHome ? "py-8" : "py-8"}`}
         >
             <div className="navbar md:w-11/12 lg:w-10/12 mx-auto px-2">
 
                 <div className="navbar-start">
 
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden rounded-xl">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden rounded-sm text-white bg-[#2b2d42] mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
@@ -37,7 +43,7 @@ const Navbar = () => {
 
                         <ul
                             tabIndex={-1}
-                            className="menu menu-sm dropdown-content mt-3 w-56 shadow-xl bg-base-100 rounded-2xl border border-base-200"
+                            className="menu menu-sm dropdown-content mt-3 w-56 shadow-xl bg-[#003566] rounded-2xl border border-base-200"
                         >
                             <NavLink href="/">Home</NavLink>
                             <NavLink href="/explore-cars">Explore Cars</NavLink>

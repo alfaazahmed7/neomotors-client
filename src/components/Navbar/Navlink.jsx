@@ -12,8 +12,8 @@ const NavLink = ({ href, children }) => {
             href={href}
             className={`relative px-5 py-4 text-sm font-medium transition-all
             ${isActive
-                    ? "text-black"
-                    : "text-gray-600 hover:text-black hover:bg-gray-100"
+                    ? "text-white"
+                    : "text-white hover:bg-[#495057]"
                 }`}
         >
             {children}
