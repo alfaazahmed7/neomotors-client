@@ -24,7 +24,6 @@ const CarDetailsPage = async ({ params }) => {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/cars/${id}`
     );
-
     const car = await res.json();
 
     return (

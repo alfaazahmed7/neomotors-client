@@ -98,7 +98,7 @@ const Navbar = () => {
                 {/* RIGHT SIDE */}
                 <div className="navbar-end flex items-center gap-3">
                     <Link
-                        href="/signin"
+                        href="/sign-in"
                         className="
                             bg-blue-500 text-white px-6 py-2 rounded-lg
                             border-b-4 border-blue-600
@@ -108,6 +108,18 @@ const Navbar = () => {
                         "
                     >
                         Login
+                    </Link>
+                    <Link
+                        href="/sign-up"
+                        className="
+                            bg-red-400 text-white px-6 py-2 rounded-lg
+                            border-b-4 border-red-400
+                            transition-all duration-200
+                            hover:brightness-110 hover:-translate-y-[1px]
+                            active:border-b-2 active:translate-y-[2px]
+                        "
+                    >
+                        Register
                     </Link>
                 </div>
             </div>
