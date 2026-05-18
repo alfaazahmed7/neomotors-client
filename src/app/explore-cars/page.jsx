@@ -2,7 +2,7 @@ import React from 'react';
 
 const ExplorePage = () => {
     return (
-        <div className='my-20'>
+        <div className=''>
             <h4>explore page</h4>
         </div>
     );

@@ -2,6 +2,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import LayoutWrapper from "@/components/Wrapper/LayoutWrapper";
 
 const outfitFont = Outfit({
   subsets: ["latin"],
@@ -21,9 +22,9 @@ export default function RootLayout({ children }) {
     >
       <body>
         <Navbar />
-        <main>
+        <LayoutWrapper>
           {children}
-        </main>
+        </LayoutWrapper>
         <Footer />
       </body>
     </html>

@@ -33,12 +33,8 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className={`sticky top-0 left-0 w-full z-50 -mb-32 transition-all duration-300 ease-in-out 
-       ${scrolled ?
-                "bg-[#1A2536]/90 backdrop-blur-md shadow-md py-5"
-                : isHome ?
-                    "bg-transparent py-8" : "bg-[#1A2536] py-8"}`}
-        >
+        <header className=
+        {`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${scrolled ? "bg-[#1A2536]/90 backdrop-blur-md shadow-md py-5" : isHome ? "bg-transparent py-8" : "bg-[#1A2536] py-8"}`}>
 
             <div className="navbar md:w-11/12 lg:w-10/12 mx-auto px-2">
 
