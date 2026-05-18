@@ -6,7 +6,7 @@ const LayoutWrapper = ({ children }) => {
     const pathname = usePathname();
 
     return (
-        <main className={pathname !== "/" ? "pt-32" : ""}>
+        <main className={pathname !== "/" ? "pt-32 lg:pt-[148px]" : ""}>
             {children}
         </main>
     );

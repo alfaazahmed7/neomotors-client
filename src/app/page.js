@@ -1,12 +1,11 @@
-import AvailableCard from "@/components/Homepage/AvailableCard/AvailableCard";
+import AvailableCar from "@/components/Homepage/AvailableCar/AvailableCar";
 import Banner from "@/components/Homepage/Banner/Banner";
-import Image from "next/image";
 
 export default function Home() {
   return (
     <div>
       <Banner />
-      <AvailableCard />
+      <AvailableCar />
     </div>
   );
 }
