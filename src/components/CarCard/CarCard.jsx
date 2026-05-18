@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import {
     FaBolt,
     FaGasPump,
@@ -13,7 +14,7 @@ const CarCardPage = ({ car }) => {
         <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:border-white/20">
 
             {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
 
             <div className="relative h-[240px] overflow-hidden">
 
@@ -113,9 +114,12 @@ const CarCardPage = ({ car }) => {
                         </h3>
                     </div>
 
-                    <button className="rounded-2xl border border-white/10 bg-white px-5 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-gray-200">
+                    <Link
+                        href={`/all-cars/${car._id}`}
+                        className="inline-block rounded-2xl border border-white/10 bg-white px-5 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-gray-200"
+                    >
                         View Details
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

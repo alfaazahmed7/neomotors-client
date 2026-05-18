@@ -1,6 +1,6 @@
 import CarCardPage from "@/components/CarCard/CarCard";
 
-const ExploreCarsPage = async () => {
+const AllCarsPage = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/cars`);
     const cars = await res.json();
 
@@ -51,4 +51,4 @@ const ExploreCarsPage = async () => {
     );
 };
 
-export default ExploreCarsPage;
+export default AllCarsPage;
