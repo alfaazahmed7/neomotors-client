@@ -1,10 +1,10 @@
-import AvailableCarCard from "./AvailableCarCard";
+import CarCardPage from "@/components/CarCard/CarCard";
 
 const AvailableCar = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/cars`);
     const data = await res.json();
     const cars = data.filter(car => car.isNew).slice(0, 6);
-    console.log(cars, 'cars');
+    // console.log(cars, 'cars');
 
     return (
         <div className="bg-[#151719] py-20">
@@ -14,10 +14,10 @@ const AvailableCar = async () => {
                     <p className="text-[#6c757d] max-w-[700px] mx-auto">Explore vehicles built for every lifestyle and budget. From sleek sedans to powerful SUVs, NeoMotors combines performance, technology, and everyday comfort.</p>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
                     {
                         cars.map(car => (
-                            <AvailableCarCard
+                            <CarCardPage
                                 key={car._id}
                                 car={car}
                             />
