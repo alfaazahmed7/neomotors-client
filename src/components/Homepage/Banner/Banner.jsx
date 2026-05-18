@@ -3,7 +3,7 @@ import Link from "next/link";
 const Banner = () => {
     return (
         <div
-            className="h-screen bg-cover bg-center flex items-center"
+            className="relative min-h-screen bg-cover bg-center flex items-center"
             style={{
                 backgroundImage: "url('/banner.jpeg')",
             }}
