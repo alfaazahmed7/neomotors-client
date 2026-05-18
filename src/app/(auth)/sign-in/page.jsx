@@ -4,10 +4,10 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FaRegUser, FaRegEnvelope, FaLock, FaGoogle } from "react-icons/fa";
-import { FaImage } from "react-icons/fa6";
 
-const SignUpPage = () => {
+const SignInPage = () => {
     const [passwordError, setPasswordError] = useState("");
     const handlePasswordChange = (e) => {
         const value = e.target.value;
@@ -28,19 +28,21 @@ const SignUpPage = () => {
 
         const formData = new FormData(e.currentTarget);
         const user = Object.fromEntries(formData.entries());
+        console.log(user, 'user');
 
-        const { data, error } = await authClient.signUp.email({
-            name: user.name,
+        const { data, error } = await authClient.signIn.email({
             email: user.email,
-            image: user.image,
             password: user.password,
         });
+        console.log(data, error, "data and error");
 
         if (data) {
+            toast.success('Welcome Back! You have successfully sign in');
             redirect('/');
         }
+
         if (error) {
-            alert('Error signing up: ' + error.message);
+            alert('Error signing in: ' + error.message);
         }
     };
 
@@ -50,11 +52,11 @@ const SignUpPage = () => {
                 {/* Heading */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-serif text-black">
-                        Create Account
+                        Welcome Back
                     </h1>
 
                     <p className="text-gray-500 mt-2 text-sm sm:text-base">
-                        Start your adventure with Wanderlust
+                        Resume your adventure with Wanderlust
                     </p>
                 </div>
 
@@ -63,25 +65,6 @@ const SignUpPage = () => {
                     onSubmit={onSubmit}
                     className="space-y-5"
                 >
-
-                    {/* Full Name */}
-                    <div>
-                        <label className="block text-sm font-medium text-black mb-2">
-                            Full Name
-                        </label>
-
-                        <div className="flex items-center border border-gray-200 bg-[#f7f7f7] px-3 h-11">
-                            <FaRegUser className="text-gray-500 text-sm" />
-
-                            <input
-                                required
-                                name="name"
-                                type="text"
-                                placeholder="Enter your name"
-                                className="w-full bg-transparent outline-none text-sm px-3"
-                            />
-                        </div>
-                    </div>
 
                     {/* Email */}
                     <div>
@@ -97,25 +80,6 @@ const SignUpPage = () => {
                                 name="email"
                                 type="email"
                                 placeholder="Enter your email"
-                                className="w-full bg-transparent outline-none text-sm px-3"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Image URL */}
-                    <div>
-                        <label className="block text-sm font-medium text-black mb-2">
-                            Image URL
-                        </label>
-
-                        <div className="flex items-center border border-gray-200 bg-[#f7f7f7] px-3 h-11">
-                            <FaImage className="text-gray-500 text-sm" />
-
-                            <input
-                                required
-                                name="image"
-                                type="text"
-                                placeholder="Enter image URL"
                                 className="w-full bg-transparent outline-none text-sm px-3"
                             />
                         </div>
@@ -150,7 +114,7 @@ const SignUpPage = () => {
                         type="submit"
                         className="w-full h-11 bg-[#11a9cf] hover:bg-[#0d9bbd] text-white text-sm font-medium transition-all duration-300 cursor-pointer"
                     >
-                        Create Account
+                        Sing In
                     </button>
                 </form>
 
@@ -159,7 +123,7 @@ const SignUpPage = () => {
                     <div className="flex-1 h-[1px] bg-[#e5e5e5]" />
 
                     <p className="text-sm text-[#7a7a7a]">
-                        Or sign up with
+                        Or continue with
                     </p>
 
                     <div className="flex-1 h-[1px] bg-[#e5e5e5]" />
@@ -171,15 +135,15 @@ const SignUpPage = () => {
                     className="w-full h-11 border border-gray-200 flex items-center justify-center gap-3 text-sm font-medium hover:bg-gray-50 transition-all duration-300 cursor-pointer"
                 >
                     <FaGoogle className="text-[#DB4437]" />
-                    Sign Up With Google
+                    Sign In With Google
                 </button>
 
                 {/* Footer */}
-                <Link href={'/sign-in'}>
+                <Link href={'/sign-up'}>
                     <p className="text-center text-sm text-gray-500 mt-6">
-                        Already have an account?{" "}
+                        Dont have an account yet?{" "}
                         <span className="text-[#11a9cf] font-medium cursor-pointer hover:underline">
-                            Sign In
+                            Register
                         </span>
                     </p>
                 </Link>
@@ -188,4 +152,4 @@ const SignUpPage = () => {
     );
 };
 
-export default SignUpPage;
+export default SignInPage;

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import Footer from "@/components/Shared/Footer/Footer";
 import LayoutWrapper from "@/components/Wrapper/LayoutWrapper";
+import { Toaster } from "react-hot-toast";
 
 const outfitFont = Outfit({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
           {children}
         </LayoutWrapper>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
