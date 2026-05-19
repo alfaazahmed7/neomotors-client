@@ -42,7 +42,6 @@ const Navbar = () => {
     const userData = authClient.useSession();
     const user = userData.data?.user;
     const isPending = userData.isPending;
-    console.log(user, 'user');
 
     return (
         <header className=
@@ -80,7 +79,7 @@ const Navbar = () => {
                             <NavLink href="/">Home</NavLink>
                             <NavLink href="/all-cars">Explore Cars</NavLink>
                             <NavLink href="/add-car">Add Car</NavLink>
-                            <NavLink href="/my-booking">My Bookings</NavLink>
+                            <NavLink href="/my-bookings">My Bookings</NavLink>
                         </ul>
                     </div>
 
@@ -103,7 +102,7 @@ const Navbar = () => {
                         <NavLink href="/">Home</NavLink>
                         <NavLink href="/all-cars">Explore Cars</NavLink>
                         <NavLink href="/add-car">Add Car</NavLink>
-                        <NavLink href="/my-booking">My Bookings</NavLink>
+                        <NavLink href="/my-bookings">My Bookings</NavLink>
                     </ul>
                 </div>
 
