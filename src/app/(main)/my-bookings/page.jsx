@@ -84,7 +84,8 @@ const MyBookingPage = async () => {
                         Explore Cars
                         <FaArrowRight />
                     </Link>
-                </div>)}
+                </div>
+            )}
 
             <div className="flex flex-col gap-10 py-14">
                 {bookings?.map((booking) => (

@@ -21,6 +21,7 @@ import {
 } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
 import toast from 'react-hot-toast';
+import BookingFormField from './BookingFromField';
 
 const CarDetails = ({ car }) => {
     const [selectedDate, setSelectedDate] = useState('');
@@ -42,16 +43,16 @@ const CarDetails = ({ car }) => {
             carAvailability: car.availability,
             departureDate: selectedDate
         }
-        
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`, {
             method: "POST",
             headers: {
-                'Content-type' : 'application/json'
+                'Content-type': 'application/json'
             },
             body: JSON.stringify(bookingData)
         });
         const data = await res.json();
-        
+
         toast.success(`Your booking for the ${car.name} has been successfully confirmed.`);
     }
 
@@ -318,12 +319,7 @@ const CarDetails = ({ car }) => {
                                 className="input w-full rounded-2xl border border-white/15 py-7 text-lg font-bold transition hover:bg-white hover:text-black mb-4 mt-4"
                             />
 
-                            <button
-                                onClick={handleBooking}
-                                className="w-full rounded-2xl bg-white py-4 text-lg font-bold text-black transition hover:bg-gray-200 cursor-pointer"
-                            >
-                                Book Now
-                            </button>
+                            <BookingFormField handleBooking={handleBooking} />
 
                             {/* Small Info */}
                             <div className="mt-8 border-t border-white/10 pt-6 text-sm">
