@@ -46,6 +46,12 @@ const SignInPage = () => {
         }
     };
 
+    const handleGoogleSignIn = async () => {
+        await authClient.signIn.social({
+            provider: "google"
+        });
+    };
+
     return (
         <div className="min-h-screen bg-[#f3f3f3] flex items-center justify-center px-4 py-10">
             <div className="w-full max-w-md bg-white border border-gray-200 shadow-sm p-6 sm:p-8">
@@ -131,7 +137,7 @@ const SignInPage = () => {
 
                 {/* Google Button */}
                 <button
-                    // onClick={handleGoogleSignIn}
+                    onClick={handleGoogleSignIn}
                     className="w-full h-11 border border-gray-200 flex items-center justify-center gap-3 text-sm font-medium hover:bg-gray-50 transition-all duration-300 cursor-pointer"
                 >
                     <FaGoogle className="text-[#DB4437]" />
