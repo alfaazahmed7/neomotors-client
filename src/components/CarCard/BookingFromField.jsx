@@ -1,27 +1,35 @@
 'use client';
-
 import { useState } from 'react';
-
 import { Modal, Button, ModalTrigger } from '@heroui/react';
-
 import {
     FaCheckCircle,
     FaStickyNote,
     FaUserTie,
     FaArrowRight,
 } from 'react-icons/fa';
-import { Trash2 } from 'lucide-react';
 
 const BookingFormField = ({ handleBooking }) => {
     const [driverNeeded, setDriverNeeded] = useState('No');
+    const [isBooked, setIsBooked] = useState(false);
+
+    const handleConfirmBooking = async () => {
+        await handleBooking();
+
+        setIsBooked(true);
+    };
 
     return (
         <Modal>
 
             {/* OPEN BUTTON */}
             <ModalTrigger className="w-full">
-                <button className="w-full rounded-2xl border border-white/15 py-4 text-lg font-bold text-white transition duration-300 hover:bg-white hover:text-black cursor-pointer">
-                    Book Now
+                <button
+                    className={`w-full rounded-2xl border py-4 text-lg font-bold transition duration-300 cursor-pointer ${isBooked
+                        ? 'border-green-500 bg-green-500 text-white'
+                        : 'border-white/15 text-white hover:bg-white hover:text-black'
+                        }`}
+                >
+                    {isBooked ? 'Booked' : 'Book Now'}
                 </button>
             </ModalTrigger>
 
@@ -144,15 +152,15 @@ const BookingFormField = ({ handleBooking }) => {
                                         Cancel
                                     </Button>
 
-                                    <button
-                                        onClick={handleBooking}
-                                        type="submit"
-                                        className="group flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-gray-200"
+                                    <Button
+                                        slot="close"
+                                        onClick={handleConfirmBooking}
+                                        className="group flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-black transition duration-300 hover:bg-gray-200 cursor-pointer"
                                     >
                                         Confirm Booking
 
                                         <FaArrowRight className="transition duration-300 group-hover:translate-x-1" />
-                                    </button>
+                                    </Button>
                                 </Modal.Footer>
                             </form>
                         </Modal.Body>
