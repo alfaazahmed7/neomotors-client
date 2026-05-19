@@ -20,6 +20,7 @@ import {
     FaArrowLeft,
 } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
 
 const CarDetails = ({ car }) => {
     const [selectedDate, setSelectedDate] = useState('');
@@ -49,9 +50,9 @@ const CarDetails = ({ car }) => {
             },
             body: JSON.stringify(bookingData)
         });
-
         const data = await res.json();
-        // console.log(data, data);
+        
+        toast.success(`Your booking for the ${car.name} has been successfully confirmed.`);
     }
 
     return (
