@@ -9,8 +9,10 @@ import {
     FaEdit
 } from 'react-icons/fa';
 import UpdateCarModal from './UpdateCarModal';
+import CancelAddedCar from './CancelAddedCar';
 
 const AddCarCardPage = ({ car }) => {
+
     return (
         <div
             className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition duration-300 hover:border-blue-500/40 lg:flex-row"
@@ -65,11 +67,7 @@ const AddCarCardPage = ({ car }) => {
                         {/* BUTTONS */}
                         <div className="flex gap-3">
                             <UpdateCarModal car={car} />
-
-                            <button className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-500 hover:text-white cursor-pointer">
-                                <FaTrash />
-                                Delete
-                            </button>
+                            <CancelAddedCar car={car} />
                         </div>
                     </div>
 
