@@ -4,7 +4,6 @@ const AvailableCar = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/cars`);
     const data = await res.json();
     const cars = data.filter(car => car.isNew).slice(0, 6);
-    // console.log(cars, 'cars');
 
     return (
         <div className="bg-[#151719] py-20">
