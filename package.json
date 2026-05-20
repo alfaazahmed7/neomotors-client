@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@better-auth/mongo-adapter": "^1.6.11",
+    "@gravity-ui/uikit": "^7.39.0",
     "@heroui/react": "^3.0.5",
     "@heroui/styles": "^3.0.5",
     "better-auth": "^1.6.11",
@@ -24,11 +25,11 @@
     "swiper": "^12.1.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.3.0",
     "babel-plugin-react-compiler": "1.0.0",
-    "daisyui": "^5.5.19",
+    "daisyui": "^5.5.20",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4.3.0"
   }
 }

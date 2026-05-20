@@ -8,30 +8,35 @@ import {
     FaTrash,
     FaEdit
 } from 'react-icons/fa';
+import UpdateCarModal from './UpdateCarModal';
 
 const AddCarCardPage = ({ car }) => {
     return (
         <div
-            className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition duration-300 hover:border-blue-500/40 md:flex-row"
+            className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition duration-300 hover:border-blue-500/40 lg:flex-row"
         >
             {/* IMAGE */}
-            <div className="relative h-[240px] w-full md:h-auto md:w-[360px]">
+            <div className="relative h-[240px] w-full lg:h-auto lg:w-[360px]">
                 <Image
-                    src={car.image}
+                    src={car?.image}
                     alt={car.name}
                     fill
                     className="object-cover"
                 />
 
                 <div className="absolute left-4 top-4 flex gap-2">
-                    {car.featured && (
-                        <span className="rounded-full bg-blue-500 px-3 py-1 text-xs font-semibold text-white">
-                            Featured
+                    {car.availability === "Available" ? (
+                        <span className="rounded-full bg-green-500 px-3 py-1 text-xs font-semibold text-white">
+                            Available
+                        </span>
+                    ) : (
+                        <span className="rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+                            Unavailable
                         </span>
                     )}
 
                     {car.isNew && (
-                        <span className="rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
+                        <span className="rounded-full bg-blue-500 px-3 py-1 text-xs font-semibold text-white">
                             New
                         </span>
                     )}
@@ -59,12 +64,9 @@ const AddCarCardPage = ({ car }) => {
 
                         {/* BUTTONS */}
                         <div className="flex gap-3">
-                            <button className="flex items-center gap-2 rounded-xl border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-sm font-semibold text-blue-400 transition hover:bg-blue-500 hover:text-white">
-                                <FaEdit />
-                                Update
-                            </button>
+                            <UpdateCarModal car={car} />
 
-                            <button className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-500 hover:text-white">
+                            <button className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-500 hover:text-white cursor-pointer">
                                 <FaTrash />
                                 Delete
                             </button>
