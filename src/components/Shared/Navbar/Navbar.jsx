@@ -78,9 +78,9 @@ const Navbar = () => {
                         <ul className="menu menu-sm dropdown-content mt-3 w-56 shadow-xl bg-[#003566] rounded-2xl border border-base-200">
                             <NavLink href="/">Home</NavLink>
                             <NavLink href="/all-cars">Explore Cars</NavLink>
+                            <NavLink href="/my-bookings">My Bookings</NavLink>
                             <NavLink href="/add-car">Add Car</NavLink>
                             <NavLink href="/my-added-cars">My Added Cars</NavLink>
-                            <NavLink href="/my-bookings">My Bookings</NavLink>
                         </ul>
                     </div>
 
@@ -102,9 +102,9 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1 flex gap-2 text-white">
                         <NavLink href="/">Home</NavLink>
                         <NavLink href="/all-cars">Explore Cars</NavLink>
+                        <NavLink href="/my-bookings">My Bookings</NavLink>
                         <NavLink href="/add-car">Add Car</NavLink>
                         <NavLink href="/my-added-cars">My Added Cars</NavLink>
-                        <NavLink href="/my-bookings">My Bookings</NavLink>
                     </ul>
                 </div>
 

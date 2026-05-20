@@ -44,7 +44,7 @@ const CancelAddedCar = ({ car }) => {
                         </AlertDialog.Header>
                         <AlertDialog.Body>
                             <p>
-                                This will permanently delete your <strong>{car.name}</strong> booking and all of its
+                                This will permanently delete your <strong>{car.name}</strong> and all of its
                                 data. This action cannot be undone.
                             </p>
                         </AlertDialog.Body>

@@ -15,7 +15,7 @@ const AddCarCardPage = ({ car }) => {
 
     return (
         <div
-            className="mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition duration-300 hover:border-blue-500/40 lg:flex-row"
+            className="group mx-auto flex max-w-6xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg transition duration-300 hover:border-blue-500/40 lg:flex-row"
         >
             {/* IMAGE */}
             <div className="relative h-[240px] w-full lg:h-auto lg:w-[360px]">
@@ -23,7 +23,7 @@ const AddCarCardPage = ({ car }) => {
                     src={car?.image}
                     alt={car.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition duration-700 group-hover:scale-110"
                 />
 
                 <div className="absolute left-4 top-4 flex gap-2">
