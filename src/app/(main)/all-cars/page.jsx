@@ -1,9 +1,9 @@
 "use client";
 
+import CarCardPage from "@/components/Explore-Cars/CarCard";
+import FilterCars from "@/components/Explore-Cars/FilterCars";
+import SearchCars from "@/components/Explore-Cars/SearchCars";
 import { useEffect, useState } from "react";
-import CarCardPage from "@/components/CarCard/CarCard";
-import SearchCars from "@/components/CarCard/SearchCars";
-import { FaCarCrash } from "react-icons/fa";
 
 const AllCarsPage = () => {
     const [cars, setCars] = useState([]);
@@ -30,25 +30,35 @@ const AllCarsPage = () => {
         setCars(data);
     };
 
-    return (
-        <div className="bg-[#151719] py-20">
-            <div className="w-10/12 mx-auto">
+    // brand filtering
+    const handleBrandFiltering = async (brandValue) => {
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/search?brand=${brandValue}`
+        );
+        const data = await res.json();
+        setCars(data);
+    };
 
-                {/* TITLE */}
-                <div className="text-center pb-14">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    return (
+        <div className="bg-[#151719] pb-20">
+
+            {/* TITLE */}
+            <div className="bg-[#1A2536] pt-14 pb-28 mb-8">
+                <div className="w-10/12 mx-auto">
+                    <h2 className="text-3xl md:text-8xl font-bold text-white mb-4">
                         Discover Every Model
                     </h2>
 
-                    <p className="text-[#6c757d] max-w-[700px] mx-auto">
-                        Explore our full collection of modern vehicles crafted
-                        to deliver exceptional comfort, powerful performance,
-                        and advanced technology.
+                    <p className="text-[#6c757d]">
+                        See What Your NeoMotors Can Do
                     </p>
                 </div>
+            </div>
+
+            <div className="w-10/12 mx-auto">
 
                 {/* STATS */}
-                <div className="mb-14">
+                {/* <div className="mb-14">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 
                         <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 text-center">
@@ -87,10 +97,15 @@ const AllCarsPage = () => {
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                {/* SEARCH */}
-                <SearchCars onSearch={handleSearch} />
+                <div className="md:flex md:justify-between md:items-center gap-10">
+                    {/* Filtering */}
+                    <FilterCars onFilter={handleBrandFiltering} />
+
+                    {/* SEARCH */}
+                    <SearchCars onSearch={handleSearch} />
+                </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mt-10">
                     {cars.length > 0 && (

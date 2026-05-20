@@ -1,9 +1,9 @@
-import Image from 'next/image';
+import MyBookingPageCard from '@/components/Explore-Cars/MyBookingPageCard';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
-import MyBookingPageCard from '@/components/CarCard/MyBookingPageCard';
-import { FaArrowRight, FaCar } from 'react-icons/fa';
+import Image from 'next/image';
 import Link from 'next/link';
+import { FaArrowRight, FaCar } from 'react-icons/fa';
 
 const MyBookingPage = async () => {
     const session = await auth.api.getSession({

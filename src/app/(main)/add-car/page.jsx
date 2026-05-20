@@ -1,5 +1,4 @@
-import AddCarField from '@/components/Add-Car/AddCarField';
-import React from 'react';
+import AddCarField from '@/components/Add-Cars/AddCarField';
 
 const AddCarPage = () => {
     return (

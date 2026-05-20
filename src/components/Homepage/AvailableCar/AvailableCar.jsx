@@ -1,4 +1,4 @@
-import CarCardPage from "@/components/CarCard/CarCard";
+import CarCardPage from "@/components/Explore-Cars/CarCard";
 
 const AvailableCar = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/cars`);

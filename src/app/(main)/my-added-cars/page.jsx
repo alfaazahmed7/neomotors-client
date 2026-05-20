@@ -1,4 +1,4 @@
-import AddCarCardPage from '@/components/Add-Car/AddCarCard';
+import AddCarCardPage from '@/components/Add-Cars/AddCarCard';
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 

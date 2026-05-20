@@ -1,4 +1,4 @@
-import CarDetails from '@/components/CarCard/CarDetails';
+import CarDetails from '@/components/Explore-Cars/CarDetails';
 
 const CarDetailsPage = async ({ params }) => {
     const { id } = await params;

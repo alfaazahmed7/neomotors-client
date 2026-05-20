@@ -7,7 +7,7 @@ export default function SearchCars({ onSearch }) {
     const [search, setSearch] = useState("");
 
     return (
-        <div className="w-full flex justify-end mb-10">
+        <div className="w-full flex md:justify-end">
             <div className="w-full max-w-xl">
                 <div className="flex items-center bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-lg">
 
