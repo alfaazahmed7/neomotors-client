@@ -45,7 +45,7 @@ const AllCarsPage = () => {
             {/* TITLE */}
             <div className="bg-[#1A2536] pt-14 pb-28 mb-8">
                 <div className="w-10/12 mx-auto">
-                    <h2 className="text-3xl md:text-8xl font-bold text-white mb-4">
+                    <h2 className="text-5xl md:text-8xl font-bold text-white mb-4">
                         Discover Every Model
                     </h2>
 

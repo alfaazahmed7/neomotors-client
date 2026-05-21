@@ -1,27 +1,27 @@
 'use client'
-import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
-import {
-    FaGasPump,
-    FaTachometerAlt,
-    FaMapMarkerAlt,
-    FaStar,
-    FaCalendarAlt,
-    FaCogs,
-    FaCar,
-    FaDoorOpen,
-    FaUsers,
-    FaBolt,
-    FaShieldAlt,
-    FaCheckCircle,
-    FaHeart,
-    FaArrowLeft,
-} from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
-import toast from 'react-hot-toast';
+import {
+    FaArrowLeft,
+    FaBolt,
+    FaCalendarAlt,
+    FaCar,
+    FaCheckCircle,
+    FaCogs,
+    FaDoorOpen,
+    FaGasPump,
+    FaHeart,
+    FaMapMarkerAlt,
+    FaShieldAlt,
+    FaStar,
+    FaTachometerAlt,
+    FaUsers,
+} from 'react-icons/fa';
 import BookingFormField from './BookingFromField';
+import toast from 'react-hot-toast';
 
 const CarDetails = ({ car }) => {
     const [selectedDate, setSelectedDate] = useState('');
@@ -41,7 +41,8 @@ const CarDetails = ({ car }) => {
             carPrice: car.price,
             carCurrency: car.currency,
             carAvailability: car.availability,
-            departureDate: selectedDate
+            departureDate: selectedDate,
+            booking_count: 0
         }
 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`, {
@@ -52,7 +53,6 @@ const CarDetails = ({ car }) => {
             body: JSON.stringify(bookingData)
         });
         const data = await res.json();
-
         toast.success(`Your booking for the ${car.name} has been successfully confirmed.`);
     }
 
@@ -72,15 +72,37 @@ const CarDetails = ({ car }) => {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-black/50 to-black/20"></div>
 
-                {/* Back Button */}
-                <div className="absolute left-6 top-6 z-20">
+                {/* Top */}
+                <div className="absolute left-6 right-6 top-6 z-20 flex items-start justify-between">
+
+                    {/* BACK BUTTON */}
                     <Link
                         href="/all-cars"
-                        className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium backdrop-blur-md transition hover:bg-white hover:text-black"
+                        className="group flex items-center gap-2 rounded-2xl border border-white/15 bg-black/30 px-5 py-3 text-sm font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-black"
                     >
-                        <FaArrowLeft />
+                        <FaArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
                         Back to Cars
                     </Link>
+
+                    {/* BOOKING COUNT */}
+                    <div className="flex items-center gap-4 rounded-2xl border border-emerald-400/20 bg-black/30 px-5 py-3 backdrop-blur-xl shadow-[0_0_30px_rgba(16,185,129,0.12)]">
+
+                        <div className="relative flex items-center justify-center">
+                            <span className="absolute inline-flex h-4 w-4 rounded-full bg-emerald-400 opacity-30 animate-ping"></span>
+
+                            <span className="relative h-3 w-3 rounded-full bg-emerald-400"></span>
+                        </div>
+
+                        <div className="flex flex-col">
+                            <span className="text-[10px] uppercase tracking-[3px] text-emerald-300/80">
+                                Total Bookings
+                            </span>
+
+                            <span className="text-2xl font-bold leading-none text-white">
+                                {car.booking_count ?? 0}
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Content */}
@@ -341,6 +363,13 @@ const CarDetails = ({ car }) => {
                                     <span>Status</span>
                                     <span className="font-semibold text-green-400">
                                         {car.availability}
+                                    </span>
+                                </div>
+
+                                <div className="flex items-center justify-between text-gray-400">
+                                    <span>Status</span>
+                                    <span className="font-semibold text-green-400">
+                                        {car.booking_count}
                                     </span>
                                 </div>
                             </div>
