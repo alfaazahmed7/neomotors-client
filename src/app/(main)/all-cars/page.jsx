@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 const AllCarsPage = () => {
     const [cars, setCars] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     // Load all cars initially
     useEffect(() => {
@@ -14,11 +15,23 @@ const AllCarsPage = () => {
     }, []);
 
     const fetchCars = async () => {
-        const res = await fetch(
-            `${process.env.NEXT_PUBLIC_SERVER_URL}/cars`
-        );
-        const data = await res.json();
-        setCars(data);
+        try {
+            setLoading(true);
+
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_SERVER_URL}/cars`
+            );
+            const data = await res.json();
+            setCars(data);
+        }
+
+        catch (error) {
+            console.error(error);
+        }
+
+        finally {
+            setLoading(false);
+        }
     };
 
     // Search function
@@ -107,16 +120,27 @@ const AllCarsPage = () => {
                     <SearchCars onSearch={handleSearch} />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mt-10">
-                    {cars.length > 0 && (
-                        cars.map((car) => (
-                            <CarCardPage
-                                key={car._id}
-                                car={car}
-                            />
-                        ))
-                    )}
-                </div>
+                {/* Loading Spinner */}
+                {loading ? (
+                    <div className="flex justify-center items-center h-64">
+                        <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mt-10">
+                        {cars.length > 0 ? (
+                            cars.map((car) => (
+                                <CarCardPage
+                                    key={car._id}
+                                    car={car}
+                                />
+                            ))
+                        ) : (
+                            <p className="text-gray-400">
+                                No cars found.
+                            </p>
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     );
