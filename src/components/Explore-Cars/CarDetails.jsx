@@ -30,6 +30,11 @@ const CarDetails = ({ car }) => {
     const user = userData.data?.user;
 
     const handleBooking = async () => {
+        if (!user) {
+            toast.error(`Please sign in to book this car`);
+            return;
+        }
+
         const bookingData = {
             userId: user.id,
             userImage: user.image,
@@ -54,6 +59,7 @@ const CarDetails = ({ car }) => {
         });
         const data = await res.json();
         toast.success(`Your booking for the ${car.name} has been successfully confirmed.`);
+        window.location.reload();
     }
 
     return (
@@ -85,24 +91,28 @@ const CarDetails = ({ car }) => {
                     </Link>
 
                     {/* BOOKING COUNT */}
-                    <div className="flex items-center gap-4 rounded-2xl border border-emerald-400/20 bg-black/30 px-5 py-3 backdrop-blur-xl shadow-[0_0_30px_rgba(16,185,129,0.12)]">
+                    {
+                        user ? (
+                            <div className="flex items-center gap-4 rounded-2xl border border-emerald-400/20 bg-black/30 px-5 py-3 backdrop-blur-xl shadow-[0_0_30px_rgba(16,185,129,0.12)]">
 
-                        <div className="relative flex items-center justify-center">
-                            <span className="absolute inline-flex h-4 w-4 rounded-full bg-emerald-400 opacity-30 animate-ping"></span>
+                                <div className="relative flex items-center justify-center">
+                                    <span className="absolute inline-flex h-4 w-4 rounded-full bg-emerald-400 opacity-30 animate-ping"></span>
 
-                            <span className="relative h-3 w-3 rounded-full bg-emerald-400"></span>
-                        </div>
+                                    <span className="relative h-3 w-3 rounded-full bg-emerald-400"></span>
+                                </div>
 
-                        <div className="flex flex-col">
-                            <span className="text-[10px] uppercase tracking-[3px] text-emerald-300/80">
-                                Total Bookings
-                            </span>
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] uppercase tracking-[3px] text-emerald-300/80">
+                                        Total Bookings
+                                    </span>
 
-                            <span className="text-2xl font-bold leading-none text-white">
-                                {car.booking_count ?? 0}
-                            </span>
-                        </div>
-                    </div>
+                                    <span className="text-2xl font-bold leading-none text-white">
+                                        {car.booking_count ?? 0}
+                                    </span>
+                                </div>
+                            </div>
+                        ) : ''
+                    }
                 </div>
 
                 {/* Content */}
@@ -341,7 +351,10 @@ const CarDetails = ({ car }) => {
                                 className="input w-full rounded-2xl border border-white/15 py-7 text-lg font-bold transition hover:bg-white hover:text-black mb-4 mt-4"
                             />
 
-                            <BookingFormField handleBooking={handleBooking} />
+                            <BookingFormField
+                                handleBooking={handleBooking}
+                                user={user}
+                            />
 
                             {/* Small Info */}
                             <div className="mt-8 border-t border-white/10 pt-6 text-sm">

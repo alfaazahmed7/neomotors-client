@@ -8,14 +8,16 @@ import {
     FaArrowRight,
 } from 'react-icons/fa';
 
-const BookingFormField = ({ handleBooking }) => {
+const BookingFormField = ({ handleBooking, user }) => {
     const [driverNeeded, setDriverNeeded] = useState('No');
     const [isBooked, setIsBooked] = useState(false);
 
     const handleConfirmBooking = async () => {
         await handleBooking();
 
-        setIsBooked(true);
+        if (user) {
+            setIsBooked(true);
+        }
     };
 
     return (

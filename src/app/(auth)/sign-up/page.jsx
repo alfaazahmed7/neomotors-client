@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FaRegUser, FaRegEnvelope, FaLock, FaGoogle } from "react-icons/fa";
 import { FaImage } from "react-icons/fa6";
 
@@ -37,6 +38,7 @@ const SignUpPage = () => {
         });
 
         if (data) {
+            toast.success(`You have successfully register to NeoMotors`);
             redirect('/');
         }
         if (error) {
