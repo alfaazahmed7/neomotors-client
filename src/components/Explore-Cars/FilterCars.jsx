@@ -7,7 +7,7 @@ const FilterCars = ({ onFilter }) => {
 
     return (
         <div className="w-full flex">
-            <div className="w-full max-w-xl">
+            <div className="w-full max-w-xl mb-5 md:mb-0">
 
                 <div className="flex items-center bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-lg">
 
