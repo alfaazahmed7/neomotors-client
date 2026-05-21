@@ -74,7 +74,7 @@ const MyBookingPage = async () => {
 
             {/* Empty Card */}
             {bookings?.length === 0 && (
-                <div className="flex min-h-[50vh] flex-col items-center justify-center rounded-3xl border border-dashed border-white/10 bg-white/5 p-10 text-center">
+                <div className="mt-10 w-10/12 lg:w-8/12 mx-auto flex min-h-[40vh] flex-col items-center justify-center rounded-3xl border border-dashed border-white/10 bg-white/5 text-center">
                     <FaCar className="mb-5 text-6xl text-gray-500" />
 
                     <h2 className="text-3xl font-bold">
