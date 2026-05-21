@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button, ModalTrigger } from "@heroui/react";
 import { Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
@@ -9,14 +10,17 @@ const CancelAddedCar = ({ car }) => {
     const carId = car._id;
 
     const handleCancelAddedCar = async () => {
+        const { data: tokenData } = await authClient.token();
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/add-car/${carId}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData.token}`
             }
         });
         if (!res.ok) {
-            throw new Error('Failed to cancel booking');
+            toast.error('Failed to cancel booking');
         }
 
         const result = await res.json();

@@ -1,4 +1,6 @@
 import CarDetails from '@/components/Explore-Cars/CarDetails';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 const CarDetailsPage = async ({ params }) => {
     const { id } = await params;

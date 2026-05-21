@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { AlertDialog, Button, ModalTrigger } from "@heroui/react";
 import { Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
@@ -8,10 +9,13 @@ import { FaTimes } from "react-icons/fa";
 const CancelBooking = ({ bookingId, booking }) => {
 
     const handleCancelBooking = async () => {
+        const { data: tokenData } = await authClient.token();
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${bookingId}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData.token}`
             }
         });
         if (!res.ok) {

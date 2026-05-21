@@ -50,10 +50,13 @@ const CarDetails = ({ car }) => {
             booking_count: 0
         }
 
+        const { data: tokenData } = await authClient.token();
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`, {
             method: "POST",
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                authorization: `Bearer ${tokenData.token}`
             },
             body: JSON.stringify(bookingData)
         });
@@ -376,13 +379,6 @@ const CarDetails = ({ car }) => {
                                     <span>Status</span>
                                     <span className="font-semibold text-green-400">
                                         {car.availability}
-                                    </span>
-                                </div>
-
-                                <div className="flex items-center justify-between text-gray-400">
-                                    <span>Status</span>
-                                    <span className="font-semibold text-green-400">
-                                        {car.booking_count}
                                     </span>
                                 </div>
                             </div>

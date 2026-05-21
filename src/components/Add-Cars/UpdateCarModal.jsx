@@ -12,6 +12,7 @@ import {
     Surface,
 } from "@heroui/react";
 import toast from "react-hot-toast";
+import { authClient } from "@/lib/auth-client";
 
 const UpdateCarModal = ({ car }) => {
 
@@ -19,18 +20,20 @@ const UpdateCarModal = ({ car }) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const updatedCar = Object.fromEntries(formData.entries());
-        console.log(updatedCar, 'updatedCar');
+
+        const { data: tokenData } = await authClient.token();
+        // console.log(tokenData, 'tokenData');
 
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/add-car/${car._id}`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData.token}`
             },
             body: JSON.stringify(updatedCar)
         });
         const data = await res.json();
         toast.success(`You have successfully edit ${car.name} details`);
-        console.log(data, 'data');
         window.location.reload();
     }
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { FaRegUser, FaRegEnvelope, FaLock, FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaLock, FaRegEnvelope } from "react-icons/fa";
 
 const SignInPage = () => {
     const [passwordError, setPasswordError] = useState("");
@@ -42,7 +42,7 @@ const SignInPage = () => {
         }
 
         if (error) {
-            alert('Error signing in: ' + error.message);
+            toast.error('Error signing in: ' + error.message);
         }
     };
 

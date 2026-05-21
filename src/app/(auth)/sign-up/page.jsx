@@ -39,10 +39,10 @@ const SignUpPage = () => {
 
         if (data) {
             toast.success(`You have successfully register to NeoMotors`);
-            redirect('/');
+            redirect('/sign-in');
         }
         if (error) {
-            alert('Error signing up: ' + error.message);
+            toast.error('Error signing up: ' + error.message);
         }
     };
 

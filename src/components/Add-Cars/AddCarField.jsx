@@ -59,10 +59,14 @@ const AddCarField = () => {
                 .filter(tag => tag !== '')
         };
 
+        const { data: tokenData } = await authClient.token();
+        // console.log(tokenData.token, 'tokenData');
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/add-car`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData.token}`
             },
             body: JSON.stringify(carData)
         });
