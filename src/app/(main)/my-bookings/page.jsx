@@ -87,7 +87,7 @@ const MyBookingPage = async () => {
                     </p>
 
                     <Link
-                        href="/cars"
+                        href="/all-cars"
                         className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-white px-6 py-4 font-semibold text-black transition hover:bg-gray-200"
                     >
                         Explore Cars
