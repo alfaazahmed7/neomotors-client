@@ -62,7 +62,7 @@ const SignInPage = () => {
                     </h1>
 
                     <p className="text-gray-500 mt-2 text-sm sm:text-base">
-                        Resume your adventure with Wanderlust
+                        Resume your adventure with NeoMotors
                     </p>
                 </div>
 

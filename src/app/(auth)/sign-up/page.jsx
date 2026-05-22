@@ -62,7 +62,7 @@ const SignUpPage = () => {
                     </h1>
 
                     <p className="text-gray-500 mt-2 text-sm sm:text-base">
-                        Start your adventure with Wanderlust
+                        Start your adventure with NeoMotors
                     </p>
                 </div>
 
