@@ -116,7 +116,7 @@ const Navbar = () => {
                             <span className="loading loading-spinner loading-xl"></span>
                             : user ? (
                                 <div className="flex items-center gap-3">
-                                    <Avatar className="ring-2 ring-primary/20">
+                                    <Avatar className="hidden sm:flex ring-2 ring-primary/20">
                                         <Avatar.Image
                                             alt={user?.name}
                                             src={user?.image}

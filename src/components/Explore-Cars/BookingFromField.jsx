@@ -42,7 +42,7 @@ const BookingFormField = ({ handleBooking, user }) => {
                     {/* DIALOG */}
                     <Modal.Dialog className="w-full max-w-2xl overflow-hidden rounded-[32px] border border-white/10 bg-[#111827] shadow-[0_20px_80px_rgba(0,0,0,0.7)]">
                         {/* HEADER */}
-                        <Modal.Header className="border-b border-white/10 px-6 py-5 md:px-8">
+                        <Modal.Header className="border-b border-white/10 sm:px-6 py-5 md:px-8">
                             <div>
                                 <p className="mb-2 text-xs uppercase tracking-[4px] text-gray-400">
                                     Neo Motors
@@ -59,7 +59,7 @@ const BookingFormField = ({ handleBooking, user }) => {
                         </Modal.Header>
 
                         {/* BODY */}
-                        <Modal.Body className="max-h-[70vh] overflow-y-auto px-6 py-6 md:px-8">
+                        <Modal.Body className="max-h-[70vh] overflow-y-auto sm:px-6 py-6 md:px-8">
                             <form
                                 className="space-y-6"
                             >

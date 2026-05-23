@@ -12,7 +12,7 @@ const AddCarField = () => {
         'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white outline-none transition placeholder:text-gray-500 focus:border-blue-500';
 
     const selectStyle =
-        'w-full bg-[#212529] rounded-xl border border-white/10 px-4 py-2.5 text-sm text-white outline-none transition focus:border-blue-500';
+        'w-full min-w-0 max-w-full truncate bg-[#212529] rounded-xl border border-white/10 px-3 sm:px-4 py-2.5 text-xs sm:text-sm text-white outline-none transition focus:border-blue-500';
 
     const userData = authClient.useSession();
     const user = userData.data?.user;

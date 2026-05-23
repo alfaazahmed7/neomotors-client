@@ -23,10 +23,10 @@ export default function SearchCars({ onSearch }) {
                     {/* BUTTON */}
                     <button
                         onClick={() => onSearch(search)}
-                        className="flex items-center gap-2 px-5 py-3 bg-red-500 hover:bg-red-600 transition-all duration-300 text-white font-medium cursor-pointer"
+                        className="flex items-center gap-2 px-5 py-4 bg-red-500 hover:bg-red-600 transition-all duration-300 text-white font-medium cursor-pointer"
                     >
                         <FaSearch />
-                        Search
+                        <span className="hidden sm:flex">Search</span>
                     </button>
                 </div>
             </div>

@@ -68,26 +68,28 @@ const CarDetails = ({ car }) => {
     return (
         <section className="min-h-screen bg-[#0B0F19] text-white">
             {/* HERO SECTION */}
-            <div className="relative h-[70vh] w-full overflow-hidden">
-                <Image
-                    src={car.image}
-                    alt={car.name}
-                    fill
-                    priority
-                    quality={100}
-                    className="object-cover"
-                />
+            <div className="relative h-auto md:h-[70vh] w-full overflow-hidden">
+                <div className="relative h-[60vh] sm:h-[70vh] md:h-full w-full">
+                    <Image
+                        src={car.image}
+                        alt={car.name}
+                        fill
+                        priority
+                        quality={100}
+                        className="object-cover md:object-cover object-contain"
+                    />
+                </div>
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-black/50 to-black/20"></div>
 
                 {/* Top */}
-                <div className="absolute left-6 right-6 top-6 z-20 flex items-start justify-between">
+                <div className="absolute left-4 right-4 top-4 sm:left-6 sm:right-6 sm:top-6 z-20 flex items-center justify-between">
 
                     {/* BACK BUTTON */}
                     <Link
                         href="/all-cars"
-                        className="group flex items-center gap-2 rounded-2xl border border-white/15 bg-black/30 px-5 py-3 text-sm font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-black"
+                        className="group flex items-center gap-2 rounded-2xl border border-white/15 bg-black/30 px-3 sm:px-5 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-black"
                     >
                         <FaArrowLeft className="transition-transform duration-300 group-hover:-translate-x-1" />
                         Back to Cars
@@ -96,7 +98,7 @@ const CarDetails = ({ car }) => {
                     {/* BOOKING COUNT */}
                     {
                         user ? (
-                            <div className="flex items-center gap-4 rounded-2xl border border-emerald-400/20 bg-black/30 px-5 py-3 backdrop-blur-xl shadow-[0_0_30px_rgba(16,185,129,0.12)]">
+                            <div className="flex items-center gap-2 sm:gap-4 rounded-2xl border border-emerald-400/20 bg-black/30 px-2 sm:px-5 py-2 sm:py-3 backdrop-blur-xl shadow-[0_0_30px_rgba(16,185,129,0.12)]">
 
                                 <div className="relative flex items-center justify-center">
                                     <span className="absolute inline-flex h-4 w-4 rounded-full bg-emerald-400 opacity-30 animate-ping"></span>
@@ -105,11 +107,11 @@ const CarDetails = ({ car }) => {
                                 </div>
 
                                 <div className="flex flex-col">
-                                    <span className="text-[10px] uppercase tracking-[3px] text-emerald-300/80">
+                                    <span className="text-[8px] sm:uppercase tracking-[3px] text-emerald-300/80">
                                         Total Bookings
                                     </span>
 
-                                    <span className="text-2xl font-bold leading-none text-white">
+                                    <span className="text-lg sm:text-2xl font-bold leading-none text-white">
                                         {car.booking_count ?? 0}
                                     </span>
                                 </div>
@@ -119,8 +121,9 @@ const CarDetails = ({ car }) => {
                 </div>
 
                 {/* Content */}
-                <div className="absolute bottom-10 left-0 right-0 z-10 mx-auto max-w-7xl px-6">
-                    <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div className="relative md:absolute md:bottom-10 left-0 right-0 z-10 mx-auto max-w-7xl px-6 py-8 md:py-0">
+                    <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+
                         {/* Left */}
                         <div>
                             <div className="mb-4 flex flex-wrap gap-3">
@@ -141,15 +144,15 @@ const CarDetails = ({ car }) => {
                                 )}
                             </div>
 
-                            <h1 className="text-4xl font-bold md:text-6xl">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
                                 {car.name}
                             </h1>
 
-                            <p className="mt-4 max-w-2xl text-lg text-gray-300">
+                            <p className="mt-4 max-w-2xl text-base sm:text-lg text-gray-300">
                                 {car.shortDescription}
                             </p>
 
-                            <div className="mt-6 flex flex-wrap items-center gap-6 text-gray-300">
+                            <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-6 text-sm sm:text-base text-gray-300">
                                 <div className="flex items-center gap-2">
                                     <FaMapMarkerAlt className="text-red-400" />
                                     {car.location}
@@ -163,12 +166,12 @@ const CarDetails = ({ car }) => {
                         </div>
 
                         {/* Price Card */}
-                        <div className="rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur-xl">
+                        <div className="rounded-3xl border border-white/10 bg-white/10 p-5 sm:p-6 backdrop-blur-xl">
                             <p className="text-sm uppercase tracking-[4px] text-gray-300">
                                 Price
                             </p>
 
-                            <h2 className="mt-2 text-5xl font-bold">
+                            <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-bold">
                                 ${car.price.toLocaleString()}
                             </h2>
 
@@ -181,7 +184,7 @@ const CarDetails = ({ car }) => {
             </div>
 
             {/* MAIN CONTENT */}
-            <div className="mx-auto max-w-7xl px-6 py-16">
+            <div className="mx-auto sm:max-w-7xl px-6 py-16">
                 <div className="grid gap-10 lg:grid-cols-3">
                     {/* LEFT SIDE */}
                     <div className="space-y-8 lg:col-span-2">
@@ -199,7 +202,7 @@ const CarDetails = ({ car }) => {
                         {/* Specs */}
                         <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg">
                             <div className="mb-8 flex items-center justify-between">
-                                <h2 className="text-3xl font-bold">
+                                <h2 className="text-xl sm:text-3xl font-bold">
                                     Specifications
                                 </h2>
 
@@ -343,7 +346,7 @@ const CarDetails = ({ car }) => {
                                 </button>
                             </div>
 
-                            <span className='text-4xl lg:text-2xl font-semibold opacity-90'>
+                            <span className=' text-2xl sm:text-4xl lg:text-2xl font-semibold opacity-90'>
                                 Departure Date:
                             </span>
 
@@ -393,7 +396,7 @@ const CarDetails = ({ car }) => {
 /* SPEC CARD */
 const SpecCard = ({ icon, title, value }) => {
     return (
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-white/20 hover:bg-white/10">
+        <div className="flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-5 transition duration-300 hover:border-white/20 hover:bg-white/10">
             <div className="mb-4 inline-flex rounded-xl bg-white/10 p-4 text-xl text-white">
                 {icon}
             </div>

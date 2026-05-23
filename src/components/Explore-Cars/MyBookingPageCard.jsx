@@ -55,7 +55,7 @@ const MyBookingPageCard = ({ booking }) => {
                             {/* TOP */}
                             <div>
                                 {/* USER INFO */}
-                                <div className="mb-4 flex flex-col sm:flex-row items-center sm:items-center gap-4 text-center sm:text-left">
+                                <div className="mb-4 flex flex-row items-center sm:items-center gap-4 text-center text-left">
                                     <Image
                                         src={booking.userImage}
                                         alt={booking.userName}
@@ -76,49 +76,49 @@ const MyBookingPageCard = ({ booking }) => {
                                 </div>
 
                                 {/* INFO CARDS */}
-                                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 text-center">
+                                <div className="grid grid-cols-3 gap-2 md:gap-3 text-center">
+
                                     {/* DATE */}
-                                    <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3">
-                                        <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400">
-                                            <FaCalendarAlt size={16} />
+                                    <div className="rounded-lg md:rounded-xl border border-white/10 bg-white/[0.04] p-2 md:p-3">
+                                        <div className="mx-auto mb-1 md:mb-2 flex h-7 w-7 md:h-9 md:w-9 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400">
+                                            <FaCalendarAlt size={14} className="md:text-base" />
                                         </div>
 
-                                        <p className="text-xs text-gray-400">
+                                        <p className="text-[10px] md:text-xs text-gray-400 leading-tight">
                                             Departure Date
                                         </p>
 
-                                        <h3 className="mt-1 text-sm font-semibold break-words">
+                                        <h3 className="mt-1 text-[11px] md:text-sm font-semibold break-words leading-tight">
                                             {booking.departureDate}
                                         </h3>
                                     </div>
 
                                     {/* PRICE */}
-                                    <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3">
-                                        <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-green-500/10 text-green-400">
-                                            <FaMoneyBillWave size={16} />
+                                    <div className="rounded-lg md:rounded-xl border border-white/10 bg-white/[0.04] p-2 md:p-3">
+                                        <div className="mx-auto mb-1 md:mb-2 flex h-7 w-7 md:h-9 md:w-9 items-center justify-center rounded-lg bg-green-500/10 text-green-400">
+                                            <FaMoneyBillWave size={14} className="md:text-base" />
                                         </div>
 
-                                        <p className="text-xs text-gray-400">
+                                        <p className="text-[10px] md:text-xs text-gray-400 leading-tight">
                                             Booking Price
                                         </p>
 
-                                        <h3 className="mt-1 text-sm font-semibold break-words">
-                                            $
-                                            {booking.carPrice.toLocaleString()}
+                                        <h3 className="mt-1 text-[11px] md:text-sm font-semibold break-words leading-tight">
+                                            ${booking.carPrice.toLocaleString()}
                                         </h3>
                                     </div>
 
                                     {/* STATUS */}
-                                    <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:col-span-2 md:col-span-1">
-                                        <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-yellow-500/10 text-yellow-400">
-                                            <FaCheckCircle size={16} />
+                                    <div className="rounded-lg md:rounded-xl border border-white/10 bg-white/[0.04] p-2 md:p-3">
+                                        <div className="mx-auto mb-1 md:mb-2 flex h-7 w-7 md:h-9 md:w-9 items-center justify-center rounded-lg bg-yellow-500/10 text-yellow-400">
+                                            <FaCheckCircle size={14} className="md:text-base" />
                                         </div>
 
-                                        <p className="text-xs text-gray-400">
+                                        <p className="text-[10px] md:text-xs text-gray-400 leading-tight">
                                             Booking Status
                                         </p>
 
-                                        <h3 className="mt-1 text-sm font-semibold text-green-400">
+                                        <h3 className="mt-1 text-[11px] md:text-sm font-semibold text-green-400 leading-tight">
                                             Confirmed
                                         </h3>
                                     </div>
@@ -139,10 +139,10 @@ const MyBookingPageCard = ({ booking }) => {
                             </div>
 
                             {/* BUTTONS */}
-                            <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <div className="mt-5 flex flex-row flex-wrap items-center justify-center gap-3">
                                 <Link
                                     href={`/all-cars/${booking.carId}`}
-                                    className="group flex w-[190px] items-center justify-center gap-2 rounded-xl border border-white/10 bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-gray-200 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+                                    className="group flex min-w-[150px] sm:min-w-[190px] items-center justify-center gap-2 rounded-xl border border-white/10 bg-white px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-semibold text-black transition hover:bg-gray-200 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
                                 >
                                     View Details
                                     <FaArrowRight className="text-xs" />

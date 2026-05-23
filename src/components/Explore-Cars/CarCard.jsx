@@ -66,7 +66,7 @@ const CarCardPage = ({ car }) => {
                         {car.brand}
                     </p>
 
-                    <h2 className="mt-1 text-2xl font-bold text-white">
+                    <h2 className="mt-1 text-2xl line-clamp-1 font-bold text-white">
                         {car.name}
                     </h2>
 
@@ -76,9 +76,9 @@ const CarCardPage = ({ car }) => {
                 </div>
 
                 {/* Specs */}
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-1 sm:gap-3">
 
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-1 sm:p-3 backdrop-blur-md">
                         <FaTachometerAlt className="mb-2 text-white/80" size={18} />
                         <p className="text-xs text-gray-400">Top Speed</p>
                         <p className="text-sm font-semibold text-white">
@@ -86,7 +86,7 @@ const CarCardPage = ({ car }) => {
                         </p>
                     </div>
 
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-1 sm:p-3 backdrop-blur-md">
                         <FaGasPump className="mb-2 text-white/80" size={18} />
                         <p className="text-xs text-gray-400">Fuel</p>
                         <p className="text-sm font-semibold text-white">
@@ -94,7 +94,7 @@ const CarCardPage = ({ car }) => {
                         </p>
                     </div>
 
-                    <div className="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-md">
+                    <div className="rounded-2xl border border-white/10 bg-white/5 p-1 sm:p-3 backdrop-blur-md">
                         <FaBolt className="mb-2 text-white/80" size={18} />
                         <p className="text-xs text-gray-400">Horsepower</p>
                         <p className="text-sm font-semibold text-white">
@@ -109,14 +109,14 @@ const CarCardPage = ({ car }) => {
                     <div>
                         <p className="text-sm text-gray-400">Starting Price</p>
 
-                        <h3 className="text-2xl md:text-3xl font-bold text-white">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
                             ${car.price.toLocaleString()}
                         </h3>
                     </div>
 
                     <Link
                         href={`/all-cars/${car._id}`}
-                        className="inline-block rounded-2xl border border-white/10 bg-white px-5 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-gray-200"
+                        className="inline-block rounded-2xl border border-white/10 bg-white px-2 sm:px-5 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-gray-200"
                     >
                         View Details
                     </Link>

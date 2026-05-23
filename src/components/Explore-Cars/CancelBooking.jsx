@@ -31,7 +31,7 @@ const CancelBooking = ({ bookingId, booking }) => {
         <AlertDialog>
 
             <ModalTrigger>
-                <button className="group flex w-[190px] items-center justify-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-5 py-2.5 text-sm font-semibold text-red-400 hover:border-red-500/40 hover:bg-red-500 hover:text-white hover:shadow-[0_0_20px_rgba(239,68,68,0.25)] cursor-pointer">
+                <button className="group flex min-w-[150px] sm:min-w-[190px] items-center justify-center gap-2 rounded-xl border border-red-500/20 bg-red-500/10 px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-semibold text-red-400 hover:border-red-500/40 hover:bg-red-500 hover:text-white hover:shadow-[0_0_20px_rgba(239,68,68,0.25)] cursor-pointer">
                     Cancel Booking
                     <FaTimes className="text-xs" />
                 </button>
